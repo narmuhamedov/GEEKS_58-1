@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фильмы</title>
+</head>
+<body>
+    <h1>Подробнее об фильме - {{ film_id.title }}</h1>
+    <img src="{{ film_id.image.url }}" alt="" width="450" height="400">
+    <p>Описание: {{ film_id.description }}</p>
+    <p>Режисёр: {{ film_id.director }}</p>
+    <p>Жанр: {{ film_id.genre }}</p>
+    <p>Страна: {{ film_id.country }}</p>
+    <p>Продолжительность: {{ film_id.duration }} мин</p>
+    <button><a target="_blank" href="{{ film_id.trailer }}">Смотреть трейлер</a></button>
+    <hr>
+    <h2>Отзывы</h2>
+ 
+    <h3>Общая оценка - "вставить значение переменной тут"</h3>
+     
+    <ol>
+        <!-- Вставить цикл тут -->
+        <li>
+            <h2>Имя - "вставить значение переменной тут"</h2>
+            <p>Оценка - "вставить значение переменной тут"</p>
+            <p>Комментарий - "вставить значение переменной тут"</p>
+        </li>
+        
+        <!-- Закрыть цикл тут -->
+    </ol>
+
+</body>
+</html>
