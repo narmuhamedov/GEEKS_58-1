@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Фильмы</title>
+    <title>Подробнее о фильме - {{ film_id.title }}</title>
+  
 </head>
 <body>
     <h1>Подробнее об фильме - {{ film_id.title }}</h1>
@@ -16,9 +17,7 @@
     <button><a target="_blank" href="{{ film_id.trailer }}">Смотреть трейлер</a></button>
     <hr>
     <h2>Отзывы</h2>
- 
     <h3>Общая оценка - "вставить значение переменной тут"</h3>
-     
     <ol>
         <!-- Вставить цикл тут -->
         <li>
@@ -26,9 +25,7 @@
             <p>Оценка - "вставить значение переменной тут"</p>
             <p>Комментарий - "вставить значение переменной тут"</p>
         </li>
-        
         <!-- Закрыть цикл тут -->
     </ol>
-
 </body>
 </html>

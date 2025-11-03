@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Фильмы</title>
+    
 </head>
 <body>
+
     <h1>Все фильмы</h1>
     <ul>
-        <!-- Цикл вставить тут -->
-         {% for i in film %}
+        {% for i in film %}
         <li>
-            <img src="{{ i.image.url }}" alt="" width="450" height="400">
+            <img src="{{ i.image.url }}" alt="{{ i.title }}">
             <h2>{{ i.title }}</h2>
             <time datetime="">{{ i.created_at }}</time>
             <a href="/film_list/{{ i.id }}/">Подробнее</a>
         </li>
-        <hr>
         {% endfor %}
-        <!-- Цикл закрыть тут -->
-
     </ul>
+
+  
 </body>
 </html>
