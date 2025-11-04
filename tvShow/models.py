@@ -31,3 +31,20 @@ class Film(models.Model):
 
 #python manage.py makemigrations
 #python manage.py migrate
+
+
+class Reviews(models.Model):
+    MARK = (
+        ('1', '1'),
+        ('2','2'),
+        ('3','3'),
+        ('4','4'),
+        ('5','5')
+    )
+    choice_film = models.ForeignKey(Film, on_delete=models.CASCADE, related_name='reviews')
+    name_user = models.CharField(max_length=100)
+    mark = models.CharField(max_length=100, choices=MARK, default='4')
+    comments = models.TextField()
+
+    def __str__(self):
+        return f'{self.choice_film}-{self.mark}'

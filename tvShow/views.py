@@ -16,11 +16,21 @@ def filmDetailView(request, id):
 
 
 #listView
+
 def filmListView(request):
     if request.method == 'GET':
         film = models.Film.objects.all()
-        context = {
-            "film": film,
-        }
-    return render(request, template_name='tvShow/films.html',
-                  context=context)
+        return render (request, 'tvShow/films.html', {"film": film})
+
+
+
+# def filmListView(request):
+#     if request.method == 'GET':
+#         # qwery запрос
+#         film = models.Film.objects.all()
+#         # контекстный ключ
+#         context = {
+#             "film": film,
+#         }
+#     return render(request, template_name='tvShow/films.html',
+#                   context=context)

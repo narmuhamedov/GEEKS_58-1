@@ -1,13 +1,15 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Фильмы</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     
 </head>
 <body>
-
+    {% include 'header.html' %}
     <h1>Все фильмы</h1>
     <ul>
         {% for i in film %}
@@ -20,6 +22,6 @@
         {% endfor %}
     </ul>
 
-  
+  {% include 'footer.html' %}
 </body>
 </html>
