@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+</head>
+<body>
+{% include 'header.html' %}
+<h1>TODO LIST</h1>
+    <ul>
+        {% for i in todo %}
+        <li>
+            <h2>{{ i.title }}</h2>
+            <p>{{ i.status }}</p>
+            <time datetime="">{{ i.created_at }}</time>
+            <a href="/todo_list/{{ i.id }}/delete/">Удалить</a>
+             <a href="/todo_list/{{ i.id }}/update/">Изменить</a>
+        </li>
+        {% endfor %}
+    </ul>
+{% include 'footer.html' %}
+</body>
+</html>
