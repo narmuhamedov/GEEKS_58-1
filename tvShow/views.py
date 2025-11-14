@@ -2,6 +2,19 @@ from django.shortcuts import render, get_object_or_404
 from . import models
 
 
+
+#search
+def searchView(request):
+    query = request.GET.get('s', '')
+    film = models.Film.objects.filter(title__icontains=query) if query else models.Film.none
+    context = {
+        'film': film,
+        's': query
+    }
+    return render(request, template_name='tvShow/films.html', context=context)
+
+
+
 #detailView
 def filmDetailView(request, id):
     if request.method == 'GET':

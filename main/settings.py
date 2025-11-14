@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'tvShow',
     'todo',
     "users",
+    'products',
 ]
 
 MIDDLEWARE = [

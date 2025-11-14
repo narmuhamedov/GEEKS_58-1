@@ -11,7 +11,7 @@ GENDER = (
 class CustomRegisterForm(UserCreationForm):
     email = forms.EmailField(required=True)
     phone_number = forms.CharField(max_length=14, required=True)
-    gender = forms.ChoiceField(choices=GENDER, required=True)
+    gender = forms.ChoiceField(choices=GENDER, initial='M',  required=True)
 
     class Meta:
         model = models.CustomUser
