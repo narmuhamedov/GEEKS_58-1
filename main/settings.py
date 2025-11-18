@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'todo',
     "users",
     'products',
+    'cars',
 ]
 
 MIDDLEWARE = [

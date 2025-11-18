@@ -28,8 +28,23 @@
         {% endfor %}
     </ul>
 
+    <!-- Пагинация -->
 
+    <!-- <div>
+        {% if film.has_previous %}
+        <a href="?page=1">Первая</a>
+        <a href="?page={{ film.previos_page_number }}">Предыдущая</a>
+        {% endif %}
+    
+    <span>Страница  {{ film.number }} из   {{ film.paginator.num_pages }}</span>
 
+      {% if film.has_next %}
+        <a href="?page={{ film.next_page_number }}">Следующая</a>
+        <a href="?page={{ film.paginator.num_pages }}">Последняя</a>
+        {% endif %}
+    </div> -->
+
+    <!-- Пагинация  -->
 
   {% include 'footer.html' %}
 </body>

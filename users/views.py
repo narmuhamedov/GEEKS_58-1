@@ -5,40 +5,46 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from . import models, forms
 
-#регистрация
-def registerView(request):
-    if request.method == 'POST':
+from django.views import generic
+
+#REGISTER
+
+class RegisterView(generic.View):
+    def get(self, request):
+        form = forms.CustomRegisterForm()
+        return render(request, 'users/register.html', {"form": form})
+    def post(self, request):
         form = forms.CustomRegisterForm(request.POST)
-        #form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('/login/')
-    else:
-        form = forms.CustomRegisterForm()
-        #form = UserCreationForm()
-    return render(request, 'users/register.html', {'form': form})
+        return render(request, 'users/register.html', {"form": form})
 
 
 
 
-#авторизация
-def authloginView(request):
-    if request.method == 'POST':
-        form = AuthenticationForm(data=request.POST)
-        if form.is_valid():
-            user = form.get_user()
-            login(request, user)
-            return redirect('users:user_list')
-    else:
+#LOGIN
+class AuthLoginView(generic.View):
+    def get(self, request):
         form = AuthenticationForm()
-    return render(request, 'users/login.html', {'form': form})
+        return render(request, 'users/login.html', {'form': form})
+
+    def post(self, request):
+         form = AuthenticationForm(data=request.POST)
+         if form.is_valid:
+             user = form.get_user()
+             login(request, user)
+             return redirect("users:user_list")
+         return render(request, 'users/login.html', {'form': form})
+
+
 
 
 #выход из сессии
-
-def authLogoutView(request):
-    logout(request)
-    return redirect('users:login')
+class AuthLogoutView(generic.View):
+    def get(self, request):
+        logout()
+        return redirect("users:logout")
 
 
 def user_list_view(request):
